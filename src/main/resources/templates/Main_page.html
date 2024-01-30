@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<title th:text="${title}"/>-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://bootstraptema.ru/snippets/calendar/clndr/calendar-redhead.css" />
+    <script src="https://bootstraptema.ru/plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="https://bootstraptema.ru/snippets/calendar/clndr/calendar.js"></script>
+    <script src="https://bootstraptema.ru/snippets/calendar/clndr/moment.js"></script>
+
+</head>
+<body>
+
+<header th:insert="Blocks/header :: header"></header>
+
+<br><br><br>
+
+<div class="container">
+    <div class="row">
+        <!--<div class="col-md-6 col-md-offset-3">-->
+
+            <div class="calendar"></div>
+
+        </div>
+
+    </div><!-- ./row -->
+</div><!-- ./container -->
+
+    <!--<p th:text="|Hello, ${title}!|" />-->
+</body>
+</html>
