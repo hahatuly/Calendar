@@ -12,16 +12,22 @@
     <h1>Booking time</h1>
     <br><br>
     <form action="/Booking_time" method="post">
+
         <label for="startTime">Select the start time:</label>
-        <input type="date" id="startTime" name="time1" min="2024-01-01" max="2024-12-31" /><br>
-        <label for="endTime">Select the end time:</label>
-        <input type="date" id="endTime" name="time2" min="2024-01-01" max="2024-12-31" /><br><br>
+        <!--<input type="date" id="startTime" name="startTime" min="2024-01-01" max="2024-12-31" /><br>-->
+        <input type="datetime-local" id="startTime" name="startTime" min="2024-01-01T00:00" max="2024-12-31T23:59" /><br>
+
+        <label for="endTime">Select the end time :</label>
+        <!--<input type="date" id="endTime" name="endTime" min="2024-01-01" max="2024-12-31" /><br><br>-->
+        <input type="datetime-local" id="endTime" name="endTime" min="2024-01-01T00:00" max="2024-12-31T23:59" /><br><br>
+
+
         <textarea name="text" placeholder="Enter your event" class="form-controll"></textarea><br>
         <button type="submit" class="btn btn-success">Accept</button>
     </form>
 
     <div th:each="el : ${books}" class="alert-info mt-2">
-        <a th:href="'/Booking_time/' + ${el.id}" class="btn btn-warning"> <p th:text="'The booking time from '+${el.time1}+' to '+${el.time2}"/></a>
+        <a th:href="'/Booking_time/' + ${el.id}" class="btn btn-warning"> <p th:text="'The booking time from '+${el.startTime}+' to '+${el.endTime}"/></a>
     </div>
 </div>
 

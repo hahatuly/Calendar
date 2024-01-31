@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Date;
+//import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -27,9 +28,9 @@ public class BookingController {
         return "Booking_time";
     }
     @PostMapping("/Booking_time")
-    public String Booking_time_add(@RequestParam Date time1, @RequestParam Date time2, @RequestParam String text, Model model) {
+    public String Booking_time_add(@RequestParam LocalDateTime startTime, @RequestParam LocalDateTime endTime, @RequestParam String text, Model model) {
 
-        bookingBase events = new bookingBase(time1, time2, text);
+        bookingBase events = new bookingBase(startTime, endTime, text);
         bookingRep.save(events);
         return "redirect:/";
 
@@ -41,12 +42,12 @@ public class BookingController {
             return "redirect:/Booking_time";
         }
         Optional<bookingBase> bookingEvent = bookingRep.findById(id);
-        ArrayList<bookingBase> resTime1 = new ArrayList<>();
-        bookingEvent.ifPresent(resTime1::add);
-        ArrayList<bookingBase> resTime2 = new ArrayList<>();
-        bookingEvent.ifPresent(resTime2::add);
-        model.addAttribute("bookingEvent", resTime1);
-        model.addAttribute("bookingEvent", resTime2);
+        ArrayList<bookingBase> resStartTime = new ArrayList<>();
+        bookingEvent.ifPresent(resStartTime::add);
+        ArrayList<bookingBase> resEndTime = new ArrayList<>();
+        bookingEvent.ifPresent(resEndTime::add);
+        model.addAttribute("bookingEvent", resStartTime);
+        model.addAttribute("bookingEvent", resEndTime);
         return "booking_events";
     }
 

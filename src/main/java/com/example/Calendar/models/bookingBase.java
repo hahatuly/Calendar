@@ -5,15 +5,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.sql.Date;
+//import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class bookingBase {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    public Date time1;
-    public Date time2;
+    public LocalDateTime startTime;
+    public LocalDateTime endTime;
     private String text;
 
     public Integer getId() {
@@ -23,15 +24,13 @@ public class bookingBase {
         this.id = id;
     }
 
-    public Date getTime1() {
-        return time1;
+    public LocalDateTime getStartTime() {
+        return startTime;
     }
-    public void setTime1(Date time1) { this.time1 = time1; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
 
-    public Date getTime2() {
-        return time2;
-    }
-    public void setTime2(Date time2) { this.time2 = time2; }
+    public LocalDateTime getEndTime() { return endTime;}
+    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
 
     public String getText() {
         return text;
@@ -40,9 +39,9 @@ public class bookingBase {
 
     public bookingBase() {
     }
-    public bookingBase(Date time1, Date time2, String text) {
-        this.time1 = time1;
-        this.time2 = time2;
+    public bookingBase(LocalDateTime startTime, LocalDateTime endTime, String text) {
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.text = text;
     }
 
