@@ -1,4 +1,4 @@
-/*package com.example.Calendar.configs;
+package com.example.Calendar.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +28,7 @@ public class WebSecurityConfig {
         return http.build();
     }
 
-    @Bean
+    /*@Bean
     public String userDetailsService() {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
@@ -38,5 +38,5 @@ public class WebSecurityConfig {
                         .build();
 
         return "redirect:/";
-    }
-}*/
+    }*/
+}
