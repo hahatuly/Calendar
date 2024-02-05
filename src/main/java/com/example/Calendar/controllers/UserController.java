@@ -38,6 +38,25 @@ public class UserController {
         if (free) {
             userRep.save(regularUser);
         }
+        if (free==false) {
+            model.addAttribute("errorMessage", "user with this name is already have");
+        }
         return "redirect:/";
     }
+
+    /*@PostMapping("/login")
+    public String User_login(@RequestParam String name, @RequestParam String password, Model model) {
+        userBase loginUser = new userBase(name, password);
+        List<userBase> rUser = userRep.findAll();
+        boolean trueUser = true;
+        for (userBase oldUsers : rUser) {
+            var oldNames = oldUsers.getName();
+            var oldPasswords = oldUsers.getPassword();
+            if ((oldNames.equals(loginUser.getName())) && (oldPasswords.equals(loginUser.getPassword()))) {
+                trueUser = false;
+                break;
+            }
+        }
+        return "redirect:/";
+    }*/
 }

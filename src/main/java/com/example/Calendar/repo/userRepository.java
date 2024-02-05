@@ -4,4 +4,5 @@ import com.example.Calendar.models.userBase;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface userRepository extends JpaRepository<userBase, Integer> {
+    userBase findByName(String name);
 }

@@ -4,9 +4,11 @@
 <div th:fragment="header">
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
 
-        <h5 class="my-0 mr-md-auto font-weight-normal">Calendar</h5>
+        <h5 class="my-0 mr-md-auto font-weight-normal">Calendar</h5><br>
 
-        <a th:inline="text"> <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</a>
+        <!--<a th:inline="text"> <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</a>-->
+        <!--<div th:each="el : ${users}" class="alert-info mt-2">
+        <a th:text="${el.name}"/>-->
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
