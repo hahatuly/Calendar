@@ -17,6 +17,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     //private PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return (UserDetails) userRep.findByName(name);
+        return userRep.findByName(name);
     }
 }
