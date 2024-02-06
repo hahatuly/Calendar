@@ -1,9 +1,6 @@
 package com.example.Calendar.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -14,6 +11,9 @@ public class schedule {
     private Integer id;
     public Date dates;
     private String text;
+    //@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    //@JoinColumn
+    //private userBase user;
 
     public Integer getId() {
         return id;

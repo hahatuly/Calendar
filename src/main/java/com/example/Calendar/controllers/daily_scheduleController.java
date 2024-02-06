@@ -2,6 +2,7 @@ package com.example.Calendar.controllers;
 
 import com.example.Calendar.models.schedule;
 import com.example.Calendar.repo.scheduleRepository;
+import com.example.Calendar.repo.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -19,6 +21,8 @@ public class daily_scheduleController {
 
     @Autowired
     private scheduleRepository scheduleRep;
+    //@Autowired
+    //private userRepository userRep;
 
     @GetMapping("/Daily_schedule")
     public String Daily_schedule(Model model) {

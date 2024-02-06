@@ -3,7 +3,6 @@ package com.example.Calendar.controllers;
 import com.example.Calendar.models.enums.Role;
 import com.example.Calendar.models.userBase;
 import com.example.Calendar.repo.userRepository;
-import com.example.Calendar.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +17,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private userRepository userRep;
-    @Autowired
-    private UserService userService;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -54,7 +52,7 @@ public class UserController {
         if (free==false) {
             model.addAttribute("errorMessage", "user with this name is already have");
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
     /*@GetMapping("/Daily_schedule")
     public String securityUrl() {
