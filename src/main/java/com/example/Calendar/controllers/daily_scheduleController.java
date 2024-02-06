@@ -49,27 +49,6 @@ public class daily_scheduleController {
         return "schedule_Dates";
     }
 
-    @GetMapping("/Daily_schedule/{id}/edit")
-    public  String scheduleEdit(@PathVariable(value = "id") Integer id, Model model) {
-        if (!scheduleRep.existsById(id)) {
-            return "redirect:/Daily_schedule";
-        }
-        Optional<schedule> scheduleDay = scheduleRep.findById(id);
-        ArrayList<schedule> resDates = new ArrayList<>();
-        scheduleDay.ifPresent(resDates::add);
-        model.addAttribute("scheduleDay", resDates);
-        return "schedule_Edit";
-    }
-
-    @PostMapping("/Daily_schedule/{id}/edit")
-    public String Daily_schedule_upd(@PathVariable(value = "id") Integer id, @RequestParam Date dates, @RequestParam String text, Model model) {
-        schedule scheduleUpd = scheduleRep.findById(id).orElseThrow();
-        scheduleUpd.setDate(dates);
-        scheduleUpd.setText(text);
-        scheduleRep.save(scheduleUpd);
-        return "redirect:/Daily_schedule";
-    }
-
     @PostMapping("/Daily_schedule/{id}/remove")
     public String Daily_schedule_delete(@PathVariable(value = "id") Integer id, Model model) {
         schedule scheduleDel = scheduleRep.findById(id).orElseThrow();
