@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.security.Principal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -25,10 +24,6 @@ public class daily_scheduleController {
     private scheduleRepository scheduleRep;
     @Autowired
     private userRepository userRep;
-    /*public userBase getUserByPrincipal(Principal principal) {
-        if (principal == null) return new userBase();
-        return userRep.findByName(principal.getName());
-    }*/
 
     @GetMapping("/Daily_schedule")
     public String Daily_schedule(Model model) {

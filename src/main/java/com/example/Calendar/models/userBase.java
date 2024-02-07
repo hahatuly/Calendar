@@ -77,6 +77,5 @@ public class userBase implements UserDetails {
         this.password = password;
     }
 
-
 }
 

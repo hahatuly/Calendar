@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.yaml.snakeyaml.events.Event;
 
-//import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,27 +66,6 @@ public class BookingController {
         model.addAttribute("bookingEvent", resEndTime);
         return "booking_events";
     }
-
-    /*@GetMapping("/Daily_schedule/{id}/edit")
-    public  String scheduleEdit(@PathVariable(value = "id") Integer id, Model model) {
-        if (!scheduleRep.existsById(id)) {
-            return "redirect:/Daily_schedule";
-        }
-        Optional<schedule> scheduleDay = scheduleRep.findById(id);
-        ArrayList<schedule> resDates = new ArrayList<>();
-        scheduleDay.ifPresent(resDates::add);
-        model.addAttribute("scheduleDay", resDates);
-        return "schedule_Edit";
-    }
-
-    @PostMapping("/Daily_schedule/{id}/edit")
-    public String Daily_schedule_upd(@PathVariable(value = "id") Integer id, @RequestParam Date dates, @RequestParam String text, Model model) {
-        schedule scheduleUpd = scheduleRep.findById(id).orElseThrow();
-        scheduleUpd.setDate(dates);
-        scheduleUpd.setText(text);
-        scheduleRep.save(scheduleUpd);
-        return "redirect:/Daily_schedule";
-    }*/
 
     @PostMapping("/Booking_time/{id}/remove")
     public String Daily_schedule_delete(@PathVariable(value = "id") Integer id, Model model) {

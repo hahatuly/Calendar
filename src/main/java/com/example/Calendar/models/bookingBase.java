@@ -1,9 +1,6 @@
 package com.example.Calendar.models;
 
 import jakarta.persistence.*;
-
-//import java.sql.Date;
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
