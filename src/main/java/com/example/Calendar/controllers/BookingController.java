@@ -1,8 +1,11 @@
 package com.example.Calendar.controllers;
 
 import com.example.Calendar.models.bookingBase;
+import com.example.Calendar.models.userBase;
 import com.example.Calendar.repo.bookingRepository;
+import com.example.Calendar.repo.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +25,8 @@ public class BookingController {
 
     @Autowired
     private bookingRepository bookingRep;
-
+    @Autowired
+    private userRepository userRep;
     @GetMapping("/Booking_time")
     public String Booking_time(Model model) {
         Iterable<bookingBase> books = bookingRep.findAll();
@@ -30,8 +34,8 @@ public class BookingController {
         return "Booking_time";
     }
     @PostMapping("/Booking_time")
-    public String Booking_time_add(@RequestParam LocalDateTime startTime, @RequestParam LocalDateTime endTime, @RequestParam String text, Model model) {
-        bookingBase events = new bookingBase(startTime, endTime, text);
+    public String Booking_time_add(@AuthenticationPrincipal userBase user, @RequestParam LocalDateTime startTime, @RequestParam LocalDateTime endTime, @RequestParam String text, Model model) {
+        bookingBase events = new bookingBase(startTime, endTime, text, user);
         List<bookingBase> bookings = bookingRep.findAll();
         boolean free = true;
         for (bookingBase booking : bookings) {

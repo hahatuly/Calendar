@@ -20,6 +20,8 @@ public class userBase implements UserDetails {
     private Set<Role> roles = new HashSet<>();
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     private List<schedule> scheduleses = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    private List<bookingBase> books = new ArrayList<>();
 
 
     public Integer getId() {
