@@ -1,8 +1,11 @@
 package com.example.Calendar.repo;
 
 import com.example.Calendar.models.schedule;
+import com.example.Calendar.models.userBase;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface scheduleRepository extends JpaRepository<schedule, Integer> {
+import java.security.Principal;
 
+public interface scheduleRepository extends JpaRepository<schedule, Integer> {
+    //userBase getUserByPrincipal(Principal principal);
 }

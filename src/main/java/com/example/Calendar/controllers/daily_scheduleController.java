@@ -1,9 +1,11 @@
 package com.example.Calendar.controllers;
 
 import com.example.Calendar.models.schedule;
+import com.example.Calendar.models.userBase;
 import com.example.Calendar.repo.scheduleRepository;
 import com.example.Calendar.repo.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +23,12 @@ public class daily_scheduleController {
 
     @Autowired
     private scheduleRepository scheduleRep;
-    //@Autowired
-    //private userRepository userRep;
+    @Autowired
+    private userRepository userRep;
+    /*public userBase getUserByPrincipal(Principal principal) {
+        if (principal == null) return new userBase();
+        return userRep.findByName(principal.getName());
+    }*/
 
     @GetMapping("/Daily_schedule")
     public String Daily_schedule(Model model) {
@@ -31,8 +37,8 @@ public class daily_scheduleController {
         return "Daily_schedule";
     }
     @PostMapping("/Daily_schedule")
-    public String Daily_schedule_add(@RequestParam Date dates, @RequestParam String text, Model model) {
-        schedule notes = new schedule(dates, text);
+    public String Daily_schedule_add(@AuthenticationPrincipal userBase user, @RequestParam Date dates, @RequestParam String text, Model model) {
+        schedule notes = new schedule(dates, text, user);
         scheduleRep.save(notes);
         return "redirect:/";
     }
