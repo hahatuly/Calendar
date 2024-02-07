@@ -22,4 +22,8 @@ ________________________________________________________________________________
 
 Файл header.html служит общей шапкой для всех страниц, в нем прописанны все необходимые ссылки на другие страницы приложения.
 
-Файлы userBase, UserController, Role, WebSecurityConfig, userRepository и CustomUserDetailsService с расширением .java и файлы login, Registration с расширением html необходимы для регистрации, авторизации и хранения в базе пользователей с ролью USER. При регистрации иавторизации используется библиотека PasswordEncoder для хеширования пароля.
+Файлы userBase, UserController, Role, WebSecurityConfig, userRepository и CustomUserDetailsService с расширением .java и файлы login, Registration с расширением .html необходимы для регистрации, авторизации и хранения в базе пользователей с ролью USER. При регистрации иавторизации используется библиотека PasswordEncoder для хеширования пароля.
+
+Файлы daily_scheduleController, schedule, scheduleRepository с расширением .java и Daily_schedule, schedule_Dates с расширением .html необходимы для просмотра, записи, обработки и добавления в базу данных информации о распорядке дня.
+
+Файлы BookingController, bookingBase, bookingRepository с расширением .java и booking_events, Booking_time с расширением .html необходимы для просмотра, записи, обработки и добавления в базу данных информации о бронировании временных интервалов.
