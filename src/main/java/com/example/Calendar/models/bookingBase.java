@@ -14,13 +14,15 @@ public class bookingBase {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private userBase user;
+    private Integer uid;
     public bookingBase() {
     }
-    public bookingBase(LocalDateTime startTime, LocalDateTime endTime, String text, userBase user) {
+    public bookingBase(LocalDateTime startTime, LocalDateTime endTime, String text, userBase user, Integer uid) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.text = text;
         this.user = user;
+        this.uid = uid;
     }
     public String getUserName() {
         return user !=null ? user.getUsername() : "<none>";
@@ -49,5 +51,10 @@ public class bookingBase {
         return text;
     }
     public void setText(String text) { this.text = text; }
-
+    public Integer getUid() {
+        return uid;
+    }
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 }

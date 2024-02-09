@@ -12,10 +12,6 @@
     <h1>The daily schedule for that day</h1>
     <div th:each="el : ${scheduleDay}" class="alert-info mt-2">
         <p th:text="${el.text}"/>
-        <form th:action="'/Daily_schedule/' + ${el.id} + '/remove'" method="post">
-            <button class="btn btn-warning" type="submit">Remove</button>
-        </form>
-
     </div>
 
 </div>

@@ -26,14 +26,24 @@ public class BookingController {
     @Autowired
     private userRepository userRep;
     @GetMapping("/Booking_time")
-    public String Booking_time(Model model) {
-        Iterable<bookingBase> books = bookingRep.findAll();
+    public String Booking_time(@AuthenticationPrincipal userBase user, Model model) {
+        List<bookingBase> arrayBooks = bookingRep.findAll();
+        List<bookingBase> books=bookingRep.findAll();
+        books.clear();
+        //boolean free = true;
+        for (bookingBase sched : arrayBooks) {
+            if (user.getId().equals(sched.getUid())) {
+                books.add(sched);
+            }
+        }
         model.addAttribute("books", books);
         return "Booking_time";
+
     }
+
     @PostMapping("/Booking_time")
     public String Booking_time_add(@AuthenticationPrincipal userBase user, @RequestParam LocalDateTime startTime, @RequestParam LocalDateTime endTime, @RequestParam String text, Model model) {
-        bookingBase events = new bookingBase(startTime, endTime, text, user);
+        bookingBase events = new bookingBase(startTime, endTime, text, user, user.getId());
         List<bookingBase> bookings = bookingRep.findAll();
         boolean free = true;
         for (bookingBase booking : bookings) {
@@ -65,12 +75,5 @@ public class BookingController {
         model.addAttribute("bookingEvent", resStartTime);
         model.addAttribute("bookingEvent", resEndTime);
         return "booking_events";
-    }
-
-    @PostMapping("/Booking_time/{id}/remove")
-    public String Daily_schedule_delete(@PathVariable(value = "id") Integer id, Model model) {
-        bookingBase scheduleDel = bookingRep.findById(id).orElseThrow();
-        bookingRep.delete(scheduleDel);
-        return "redirect:/Booking_time";
     }
 }

@@ -4,12 +4,9 @@
 <div th:fragment="header">
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
 
-        <h5 class="my-0 mr-md-auto font-weight-normal">Calendar_  </h5>
+        <h5 class="my-0 mr-md-auto font-weight-normal">  </h5>
 
-        <a th:inline="text"> <span th:remove="tag" sec:authentication="name">thymeleaf</span>_</a>
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign Out"/>
-        </form>
+        <h5  class="my-0 mr-md-auto font-weight-normal" th:inline="text"> <span th:remove="tag" sec:authentication="name">thymeleaf</span> </h5>
 
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Main page</a>

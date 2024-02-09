@@ -12,10 +12,6 @@
     <h1>Event for the selected time interval</h1>
     <div th:each="el : ${bookingEvent}" class="alert-info mt-2">
         <p th:text="${el.text}"/>
-        <form th:action="'/Booking_time/' + ${el.id} + '/remove'" method="post">
-            <button class="btn btn-warning" type="submit">Remove</button>
-        </form>
-
     </div>
 
 </div>

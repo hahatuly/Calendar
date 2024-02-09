@@ -13,12 +13,14 @@ public class schedule {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private userBase user;
+    private Integer uid;
     public schedule() {
     }
-    public schedule(Date dates, String text, userBase user) {
+    public schedule(Date dates, String text, userBase user, Integer uid) {
         this.dates = dates;
         this.text = text;
         this.user = user;
+        this.uid = uid;
     }
     public String getUserName() {
         return user !=null ? user.getUsername() : "<none>";
@@ -44,5 +46,12 @@ public class schedule {
         return text;
     }
     public void setText(String text) { this.text = text; }
+
+    public Integer getUid() {
+        return uid;
+    }
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
 }
